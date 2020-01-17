@@ -45,7 +45,6 @@ class MainActivity : AppCompatActivity(), LocationListener {
     private fun locationStart() {
         Log.d("debug", "locationStart()")
 
-        // Instances of LocationManager class must be obtained using Context.getSystemService(Class)
         locationManager = getSystemService(Context.LOCATION_SERVICE) as LocationManager
 
         val locationManager = getSystemService(Context.LOCATION_SERVICE) as LocationManager
@@ -53,7 +52,7 @@ class MainActivity : AppCompatActivity(), LocationListener {
         if (locationManager.isProviderEnabled(LocationManager.GPS_PROVIDER)) {
             Log.d("debug", "location manager Enabled")
         } else {
-            // to prompt setting up GPS
+
             val settingsIntent = Intent(Settings.ACTION_LOCATION_SOURCE_SETTINGS)
             startActivity(settingsIntent)
             Log.d("debug", "not gpsEnable, startActivity")
